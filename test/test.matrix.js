@@ -32,8 +32,8 @@ describe( 'matrix mean', function tests() {
 	d1 = new Int16Array( 25 );
 	d2 = new Int16Array( 25 );
 	for ( i = 0; i < d1.length; i++ ) {
-		d1[ i ] = i;
-		d2[ i ] = i;
+		d1[ i ] = ( i + 1 );
+		d2[ i ] = 1 / ( i + 1);
 	}
 
 	beforeEach( function before() {

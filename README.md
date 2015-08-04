@@ -4,10 +4,10 @@ Mean
 
 > [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distribution [expected value](https://en.wikipedia.org/wiki/Expected_value).
 
-The [expected value](https://en.wikipedia.org/wiki/Expected_value) for a [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) random variable is
+The [expected value](https://en.wikipedia.org/wiki/Expected_value) for an [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="\mathbb{E}\left[ X \right] = " data-equation="eq:expectation">
-	<img src="" alt="Expected value for a Exponential distribution.">
+<div class="equation" align="center" data-raw-text="\mathbb{E}\left[ X \right] = \frac{1}{\lambda}" data-equation="eq:expectation">
+	<img src="" alt="Expected value for an Exponential distribution.">
 	<br>
 </div>
 
@@ -31,7 +31,7 @@ var mean = require( 'distributions-exponential-mean' );
 
 #### mean( lambda[, opts] )
 
-Computes the [expected value](https://en.wikipedia.org/wiki/Expected_value) for a [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distribution with parameter `lambda` . `lambda` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix).
+Computes the [expected value](https://en.wikipedia.org/wiki/Expected_value) for an [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distribution with parameter `lambda` . `lambda` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix).
 
 ``` javascript
 var matrix = require( 'dstructs-matrix' ),
@@ -236,52 +236,52 @@ bool = ( mat === out );
 var matrix = require( 'dstructs-matrix' ),
 	mean = require( 'distributions-exponential-mean' );
 
-var data,
+var lambda,
 	mat,
 	out,
 	tmp,
 	i;
 
 // Plain arrays...
-data = new Array( 10 );
-for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = i;
+lambda = new Array( 10 );
+for ( i = 0; i < lambda.length; i++ ) {
+	lambda[ i ] = i + 1;
 }
-out = mean( data );
+out = mean( lambda );
 
 // Object arrays (accessors)...
 function getValue( d ) {
 	return d.x;
 }
-for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = {
-		'x': data[ i ]
+for ( i = 0; i < lambda.length; i++ ) {
+	lambda[ i ] = {
+		'x': lambda[ i ]
 	};
 }
-out = mean( data, {
+out = mean( lambda, {
 	'accessor': getValue
 });
 
 // Deep set arrays...
-for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = {
-		'x': [ i, data[ i ].x ]
+for ( i = 0; i < lambda.length; i++ ) {
+	lambda[ i ] = {
+		'x': [ i, lambda[ i ].x ]
 	};
 }
-out = mean( data, {
+out = mean( lambda, {
 	'path': 'x/1',
 	'sep': '/'
 });
 
 // Typed arrays...
-data = new Int32Array( 10 );
-for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = i
+lambda = new Int32Array( 10 );
+for ( i = 0; i < lambda.length; i++ ) {
+	lambda[ i ] = i + 1
 }
-out = mean( data );
+out = mean( lambda );
 
 // Matrices...
-mat = matrix( data, [5,2], 'int32' );
+mat = matrix( lambda, [5,2], 'int32' );
 out = mean( mat );
 
 // Matrices (custom output data type)...
