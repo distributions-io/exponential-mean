@@ -178,10 +178,10 @@ bool = ( mat === out );
 
 ## Notes
 
-*	If an element is __not__ a numeric value, the evaluated principal [square root](https://en.wikipedia.org/wiki/Square_root) is `NaN`.
+*	If the `lambda` parameter is __not__ a numeric value, the computed [expected value](https://en.wikipedia.org/wiki/Expected_value) is `NaN`.
 
 	``` javascript
-	var data, out;
+	var lambda, out;
 
 	out = mean( null );
 	// returns NaN
@@ -198,19 +198,19 @@ bool = ( mat === out );
 	function getValue( d, i ) {
 		return d.x;
 	}
-	data = [
+	lambda = [
 		{'x':true},
 		{'x':[]},
 		{'x':{}},
 		{'x':null}
 	];
 
-	out = mean( data, {
+	out = mean( lambda, {
 		'accessor': getValue
 	});
 	// returns [ NaN, NaN, NaN, NaN ]
 
-	out = mean( data, {
+	out = mean( lambda, {
 		'path': 'x'
 	});
 	/*
