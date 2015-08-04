@@ -7,7 +7,7 @@ Mean
 The [expected value](https://en.wikipedia.org/wiki/Expected_value) for an [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) random variable is
 
 <div class="equation" align="center" data-raw-text="\mathbb{E}\left[ X \right] = \frac{1}{\lambda}" data-equation="eq:expectation">
-	<img src="" alt="Expected value for an Exponential distribution.">
+	<img src="https://cdn.rawgit.com/distributions-io/exponential-mean/517d605ff693b5b069788c78e6a9340d00692dbe/docs/img/eqn.svg" alt="Expected value for an Exponential distribution.">
 	<br>
 </div>
 
