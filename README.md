@@ -31,7 +31,7 @@ var mean = require( 'distributions-exponential-mean' );
 
 #### mean( lambda[, opts] )
 
-Computes the [expected value](https://en.wikipedia.org/wiki/Expected_value) for an [exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distribution with parameter `lambda` . `lambda` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix). All `lambda` values must be positive numbers. For non-positive inputs, `NaN` is returned.
+Computes the [expected value](https://en.wikipedia.org/wiki/Expected_value) for an [exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distribution with parameter `lambda`. `lambda` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix). All `lambda` values must be positive numbers. For non-positive inputs, `NaN` is returned.
 
 ``` javascript
 var matrix = require( 'dstructs-matrix' ),
@@ -42,9 +42,6 @@ var matrix = require( 'dstructs-matrix' ),
 
 out = mean( 1 );
 // returns 1
-
-out = mean( -1 );
-// returns NaN
 
 lambda = [ 1, 5, 10, 20 ];
 out = mean( lambda );
@@ -178,10 +175,16 @@ bool = ( mat === out );
 
 ## Notes
 
-*	If the `lambda` parameter is __not__ a numeric value, the computed [expected value](https://en.wikipedia.org/wiki/Expected_value) is `NaN`.
+*	If the `lambda` parameter is __not__ a positive number, the [expected value](https://en.wikipedia.org/wiki/Expected_value) is `NaN`.
 
 	``` javascript
 	var lambda, out;
+
+	out = mean( -1 );
+	// returns NaN
+
+	out = mean( 0 );
+	// returns NaN
 
 	out = mean( null );
 	// returns NaN
