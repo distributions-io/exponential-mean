@@ -4,14 +4,14 @@ Mean
 
 > [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distribution [expected value](https://en.wikipedia.org/wiki/Expected_value).
 
-The [expected value](https://en.wikipedia.org/wiki/Expected_value) for an [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) random variable is
+The [expected value](https://en.wikipedia.org/wiki/Expected_value) for an [exponential](https://en.wikipedia.org/wiki/Exponential_distribution) random variable is
 
 <div class="equation" align="center" data-raw-text="\mathbb{E}\left[ X \right] = \frac{1}{\lambda}" data-equation="eq:expectation">
-	<img src="https://cdn.rawgit.com/distributions-io/exponential-mean/517d605ff693b5b069788c78e6a9340d00692dbe/docs/img/eqn.svg" alt="Expected value for an Exponential distribution.">
+	<img src="https://cdn.rawgit.com/distributions-io/exponential-mean/517d605ff693b5b069788c78e6a9340d00692dbe/docs/img/eqn.svg" alt="Expected value for an exponential distribution.">
 	<br>
 </div>
 
-where `lambda` is the rate parameter.
+where `lambda > 0` is the rate parameter.
 
 
 ## Installation
@@ -31,7 +31,7 @@ var mean = require( 'distributions-exponential-mean' );
 
 #### mean( lambda[, opts] )
 
-Computes the [expected value](https://en.wikipedia.org/wiki/Expected_value) for an [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distribution with parameter `lambda` . `lambda` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix). All `lambda` values must be positive numbers. For non-positive inputs, `NaN` is returned.
+Computes the [expected value](https://en.wikipedia.org/wiki/Expected_value) for an [exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distribution with parameter `lambda` . `lambda` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix). All `lambda` values must be positive numbers. For non-positive inputs, `NaN` is returned.
 
 ``` javascript
 var matrix = require( 'dstructs-matrix' ),
